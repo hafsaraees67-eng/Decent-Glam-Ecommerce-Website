@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - Decent Glam</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f6f2; display:flex; justify-content:center; align-items:center; height:100vh; }
+    .signup-container { background:#fff; padding:40px; border-radius:15px; box-shadow:0 5px 25px rgba(0,0,0,0.1); width:350px; text-align:center; }
+    h2 { color:#4a3426; margin-bottom:20px; }
+    input { width:100%; padding:10px; margin:10px 0; border-radius:5px; border:1px solid #ccc; }
+    button { background:#b37e5f; color:#fff; padding:10px 20px; border:none; border-radius:5px; cursor:pointer; font-weight:600; }
+    button:hover { background:#a06c4e; }
+    p#msg { margin-top:10px; color:red; }
+  </style>
+</head>
+<body>
+
+<div class="signup-container">
+  <h2>Signup</h2>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="signup()">Signup</button>
+  <p id="msg"></p>
+  <p>Already have account? <a href="login.html">Login</a></p>
+</div>
+
+<script>
+function signup() {
+  fetch("/api/signup", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify({ 
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value
+    })
+  })
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("msg").innerText = data;
+    if (data === "Signup successful") {
+      alert("Signup successful! Please login");
+      window.location.href = "login.html";
+    }
+  })
+  .catch(err => console.error(err));
+}
+</script>
+
+</body>
+</html>

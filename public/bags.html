@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bags Collection</title>
+<link rel="stylesheet" href="css/collection.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <h1>Decent Glam</h1>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" id="loginBtn">Login</a>
+  <a href="#" id="logoutBtn" style="display:none">Logout</a>
+       <a href="#" class="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</a>
+
+    </div>
+</nav>
+
+<div class="collection-header">
+    <h1 id="collection-title">Collection</h1>
+    <button class="back-category-btn" onclick="location.href='index.html'">
+        ← Back to Categories
+    </button>
+</div>
+
+<div class="products-section" id="collection-section">
+    <div class="products-grid" id="products-container"></div>
+</div>
+
+<div id="modal-overlay"></div>
+<div class="product-detail" id="product-detail">
+    <button class="back-btn" onclick="closeModal()">✕</button>
+
+    <div class="detail-layout">
+        <div class="detail-image">
+            <img id="detail-img">
+        </div>
+
+        <div class="detail-info">
+            <h2 id="detail-name"></h2>
+            <p id="detail-desc"></p>
+            <ul id="detail-features"></ul>
+            <p id="detail-price"></p>
+
+            <div class="detail-buttons">
+                <button id="add-to-cart-btn">Add to Cart</button>
+
+
+
+                <button class="btn buy-now">Buy Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function addToCart(id){
+  fetch("/api/add-to-cart", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({ productId:id })
+  })
+  .then(res => res.text())
+  .then(data => alert(data));
+}
+</script>
+<script src="js/cartCount.js"></script>
+
+<script src="js/authStatus.js"></script>
+
+<script src="js/bags.js"></script>
+</body>
+</html>

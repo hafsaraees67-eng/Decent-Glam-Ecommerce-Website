@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decent Glam - Home</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<nav class="navbar">
+    <h1>Decent Glam</h1>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blogs.html">Our Blogs</a>
+        <a href="services.html">Services</a>
+        <a href="About us.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html" id="loginBtn">Login</a>
+  <a href="#" id="logoutBtn" style="display:none">Logout</a>
+       <a href="#" class="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</a>
+
+    </div>
+</nav>
+
+<div class="brand-container">
+    <img src="images/acessories3.jpg" class="left-image" alt="Accessories">
+    <div class="box1">
+        <p class="title-text">Our Accessory Pillars</p>
+        <p class="text1">
+            <b>Bags:</b> Polished carries for every occasion.<br>
+            <b>Jewelry:</b> Everyday sparkle and statement pieces.<br>
+            <b>Watches:</b> Timepieces built for lasting style.
+        </p>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Categories Section -->
+<div class="categories-grid">
+
+    <!-- BAGS -->
+    <div class="category-item">
+        <div class="category-image-container">
+            <img src="images/bag2.jpg" class="category-image">
+        </div>
+        <div class="category-info">
+            <h3 class="category-name">Signature Bags</h3>
+            <p class="category-desc">Explore our exclusive collection</p>
+            <button class="category-btn" onclick="location.href='bags.html'">
+                View Collection →
+            </button>
+        </div>
+    </div>
+
+    <!-- JEWELRY -->
+    <div class="category-item">
+        <div class="category-image-container">
+            <img src="images/jewel2.jpg" class="category-image">
+        </div>
+        <div class="category-info">
+            <h3 class="category-name">Sparkling Jewelry</h3>
+            <p class="category-desc">Discover timeless pieces</p>
+            <button class="category-btn" onclick="location.href='jewelry.html'">
+                View Collection →
+            </button>
+        </div>
+    </div>
+
+    <!-- WATCHES -->
+    <div class="category-item">
+        <div class="category-image-container">
+            <img src="images/watch3.jpg" class="category-image">
+        </div>
+        <div class="category-info">
+            <h3 class="category-name">Luxury Watches</h3>
+            <p class="category-desc">Timeless elegance</p>
+            <button class="category-btn" onclick="location.href='watches.html'">
+                View Collection →
+            </button>
+        </div>
+    </div>
+
+</div>
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Decent Glam</h3>
+            <p>High-quality designs and custom products made with care.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="blogs.html">Our Blogs</a>
+              <a href="services.html">Services</a>
+            <a href="About us.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 Decent Glam — All Rights Reserved.
+    </div>
+</footer>
+
+<script src="js/cartCount.js"></script>
+<script src="js/authStatus.js"></script>
+
+
+</body>
+</html>

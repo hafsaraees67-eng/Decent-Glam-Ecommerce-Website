@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Blogs</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+   background: rgb(244, 220, 189);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar h1 {
+    color: #4a3426;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    color: #b37e5f;
+    background-color: rgba(179, 126, 95, 0.1);
+}
+
+.cart-icon {
+    font-size: 20px;
+    background-color: #f5f0eb;
+    padding: 10px 15px;
+    border-radius: 50%;
+}
+
+/* ================= BLOG LIST ================= */
+.blogs-section {
+    width: 1200px;
+    margin: auto;
+    padding: 40px 0px;
+}
+
+.blogs-section h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #3b2a1a;
+    margin-bottom: 40px;
+}
+
+.blogs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Blog Card (FIXED SIZE) */
+.blog-card {
+    width: 370px;
+    height: 420px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.blog-card img {
+    width: 370px;
+    height: 220px;
+    object-fit: cover;
+}
+
+.blog-card-content {
+    padding: 20px;
+}
+
+.blog-card h2 {
+    font-size: 20px;
+    color: #3b2a1a;
+    margin-bottom: 10px;
+}
+
+.blog-card p {
+    font-size: 14px;
+    color: #030303;
+    line-height: 22px;
+}
+
+/* ================= FULL BLOG PAGE ================= */
+.blog-detail {
+    width: 900px;
+    margin: auto;
+    padding: 40px 0px;
+    display: none;
+}
+
+.blog-detail img {
+    width: 900px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.blog-detail h2 {
+    font-size: 30px;
+    color: #512904;
+    margin: 20px 0px;
+}
+
+.blog-detail p {
+    font-size: 16px;
+    color: #070707;
+    line-height: 26px;
+    margin-bottom: 16px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #c2a27d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  .main-footer {
+    background-color: #3e2a20;
+    color: white;
+    padding: 60px 20px 35px;
+    margin-top: 120px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-section p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #f2f2f2;
+}
+
+.footer-section a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-section a:hover {
+    color: #e8c7a1;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+    
+    <div class="navbar">
+        <h1 style="margin-left: 40px;">Decent Glam</h1>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="blogs.html">Our Blogs</a>
+            <a href="services.html">Services</a>
+            <a href="About us.html">About Us</a>
+            <a href="contact.html">Contacts Us</a>
+            <a href="login.html" id="loginBtn">Login</a>
+  <a href="#" id="logoutBtn" style="display:none">Logout</a>
+            <a href="#" class="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</a>
+
+        </div>
+    </div>
+
+<!-- ================= BLOG LIST ================= -->
+<section class="blogs-section" id="blogList">
+    <h1>Our Blogs</h1>
+
+    <div class="blogs-grid">
+
+        <div class="blog-card" onclick="openBlog('blog1')">
+            <img src="images/watch1.jpg">
+            <div class="blog-card-content">
+                <h2>Luxury Watches Guide</h2>
+                <p>Explore the craftsmanship, elegance, and timeless value of luxury watches.</p>
+            </div>
+        </div>
+
+        <div class="blog-card" onclick="openBlog('blog2')">
+            <img src="images/watch2.jpg">
+            <div class="blog-card-content">
+                <h2>How to Care for Watches</h2>
+                <p>Learn essential care tips to maintain your watch’s beauty and accuracy.</p>
+            </div>
+        </div>
+
+        <div class="blog-card" onclick="openBlog('blog3')">
+            <img src="images/jewellery1.jpg">
+            <div class="blog-card-content">
+                <h2>Jewellery Styling Tips</h2>
+                <p>Discover how to style jewellery for everyday wear and special occasions.</p>
+            </div>
+        </div>
+
+        <div class="blog-card" onclick="openBlog('blog4')">
+            <img src="images/jewellery2.jpg">
+            <div class="blog-card-content">
+                <h2>Caring for Fine Jewellery</h2>
+                <p>Protect your precious jewellery with proper storage and gentle care.</p>
+            </div>
+        </div>
+
+        <div class="blog-card" onclick="openBlog('blog5')">
+            <img src="images/bag1.jpg">
+            <div class="blog-card-content">
+                <h2>Choosing the Right Bag</h2>
+                <p>Find the perfect bag that balances fashion and everyday functionality.</p>
+            </div>
+        </div>
+
+        <div class="blog-card" onclick="openBlog('blog6')">
+            <img src="images/blogbag2.jpg">
+            <div class="blog-card-content">
+                <h2>Bag Care & Maintenance</h2>
+                <p>Keep your bags elegant and long-lasting with proper care techniques.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FULL BLOG CONTENT ================= -->
+
+<div class="blog-detail" id="blog1">
+    <img src="images/watch1.jpg">
+    <h2>Luxury Watches Guide</h2>
+
+    <p>
+    Luxury watches represent precision, craftsmanship, and timeless elegance.
+    Designed with attention to detail, they use premium materials that ensure
+    durability and accuracy. Wearing a luxury watch reflects confidence and
+    appreciation for fine design.
+    </p>
+
+    <p>
+    From classic leather straps to modern stainless-steel finishes, luxury
+    watches offer styles for every personality. Each component is carefully
+    engineered to deliver beauty and performance.
+    </p>
+
+    <p>
+    A luxury watch is also an investment. With proper care and servicing, it can
+    last decades and even be passed down through generations as a timeless piece.
+    </p>
+
+    <div class="back-btn" onclick="goBack()">← Back to Blogs</div>
+</div>
+
+<div class="blog-detail" id="blog2">
+    <img src="images/watch2.jpg">
+    <h2>How to Care for Watches</h2>
+
+    <p>
+    Regular care keeps watches accurate and visually appealing. Dust, moisture,
+    and sweat can damage internal components if not cleaned properly.
+    </p>
+
+    <p>
+    Store watches in protective cases and avoid extreme temperatures. Only expose
+    watches to water if they are designed to be water-resistant.
+    </p>
+
+    <p>
+    Professional servicing ensures smooth operation. Routine maintenance extends
+    the life of your watch and preserves its elegance.
+    </p>
+
+    <div class="back-btn" onclick="goBack()">← Back to Blogs</div>
+</div>
+
+<div class="blog-detail" id="blog3">
+    <img src="images/jewellery1.jpg">
+    <h2>Jewellery Styling Tips</h2>
+
+    <p>
+    Jewellery enhances your overall look and adds personality to your outfit.
+    The right pieces create balance and elegance.
+    </p>
+
+    <p>
+    Minimal jewellery works well for daily wear, while statement pieces suit
+    special occasions. Mixing metals should be done thoughtfully.
+    </p>
+
+    <p>
+    Confidence is key. Choose jewellery that reflects your style and comfort for
+    a timeless appearance.
+    </p>
+
+    <div class="back-btn" onclick="goBack()">← Back to Blogs</div>
+</div>
+
+<div class="blog-detail" id="blog4">
+    <img src="images/jewellery2.jpg">
+    <h2>Caring for Fine Jewellery</h2>
+
+    <p>
+    Fine jewellery requires gentle handling to maintain its shine and quality.
+    Exposure to chemicals can reduce brilliance.
+    </p>
+
+    <p>
+    Store jewellery separately in soft-lined boxes to prevent scratches and
+    tangling.
+    </p>
+
+    <p>
+    Regular cleaning and inspections help preserve beauty and durability for
+    years to come.
+    </p>
+
+    <div class="back-btn" onclick="goBack()">← Back to Blogs</div>
+</div>
+
+<div class="blog-detail" id="blog5">
+    <img src="images/bag1.jpg">
+    <h2>Choosing the Right Bag</h2>
+
+    <p>
+    A good bag combines style and practicality. Size and material matter for
+    daily comfort.
+    </p>
+
+    <p>
+    Structured designs work well for formal occasions, while casual bags suit
+    everyday use.
+    </p>
+
+    <p>
+    Choosing wisely ensures your bag complements your outfit and lifestyle.
+    </p>
+
+    <div class="back-btn" onclick="goBack()">← Back to Blogs</div>
+</div>
+
+<div class="blog-detail" id="blog6">
+    <img src="images/blogbag2.jpg">
+    <h2>Bag Care & Maintenance</h2>
+
+    <p>
+    Regular cleaning keeps bags fresh and free from damage.
+    </p>
+
+    <p>
+    Store bags in dust covers and avoid overfilling to maintain shape.
+    </p>
+
+    <p>
+    With proper care, bags remain elegant and durable for many years.
+    </p>
+
+    <div class="back-btn" onclick="goBack()">← Back to Blogs</div>
+</div>
+<footer class="main-footer">
+    <div class="footer-content">
+
+        <div class="footer-section">
+            <h3>Decent Glam</h3>
+            <p>High-quality designs and custom products made with care.</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="blogs.html">Our Blogs</a>
+            <a href="services.html">Services</a>
+            <a href="About us.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+           
+        </div>
+
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Decent Glam — All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+function openBlog(id) {
+    document.getElementById("blogList").style.display = "none";
+    var blogs = document.getElementsByClassName("blog-detail");
+    for (var i = 0; i < blogs.length; i++) {
+        blogs[i].style.display = "none";
+    }
+    document.getElementById(id).style.display = "block";
+}
+
+function goBack() {
+    document.getElementById("blogList").style.display = "block";
+    var blogs = document.getElementsByClassName("blog-detail");
+    for (var i = 0; i < blogs.length; i++) {
+        blogs[i].style.display = "none";
+    }
+}
+</script>
+<script src="js/cartCount.js"></script>
+<script src="js/authStatus.js"></script>
+
+
+</body>
+</html>

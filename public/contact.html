@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Us</title>
+
+<style>
+     body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: rgb(244, 220, 189);
+    color: #4a3426;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar h1 {
+    color: #4a3426;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    color: #b37e5f;
+    background-color: rgba(179, 126, 95, 0.1);
+}
+
+.cart-icon {
+    font-size: 20px;
+    background-color: #f5f0eb;
+    padding: 10px 15px;
+    border-radius: 50%;
+}
+    .container {
+    max-width: 900px;
+    margin: 80px auto;
+    display: flex;
+}
+
+
+    /* LEFT SIDE */
+    .left {
+        width: 350px;
+        padding: 30px;
+    }
+
+    .left h1 {
+        font-size: 38px;
+        margin-bottom: 15px;
+        color: #4a3426;
+    }
+
+    .left p {
+        font-size: 14px;
+        width: 260px;
+        line-height: 20px;
+        margin-bottom: 30px;
+        color: #4a3426;
+    }
+
+    /* RIGHT SIDE FORM BOX */
+    .form-box {
+    width: 550px;
+    height: auto;
+    background: #d0b899;
+    border-radius: 10px;
+    padding: 35px;
+    color: #4a3426;
+}
+
+
+
+    .form-row {
+    display: flex;
+    gap: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    height: 35px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border: 1px solid #b8a089;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+    padding-top: 8px;
+}
+
+    .full {
+        width: 500px; 
+    }
+
+    textarea {
+        height: 90px;
+        padding-top: 8px;
+    }
+
+    .btn {
+        width: 130px;
+        height: 35px;
+        background: #4a3426;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .main-footer {
+    background-color: #3e2a20;
+    color: white;
+    padding: 60px 20px 35px;
+    margin-top: 120px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-section p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #f2f2f2;
+}
+
+.footer-section a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-section a:hover {
+    color: #e8c7a1;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    font-size: 13px;
+}
+
+</style>
+
+</head>
+<body>
+    <div class="navbar">
+        <h1 style="margin-left: 40px;color: #4a3426;">Decent Glam</h1>
+
+        <div class="nav-links">
+             <a href="index.html">Home</a>
+            <a href="blogs.html">Our Blogs</a>
+             <a href="services.html">Services</a>
+              <a href="About us.html">About Us</a>
+            <a href="contact.html">Contacts Us</a>
+            <a href="login.html" id="loginBtn">Login</a>
+  <a href="#" id="logoutBtn" style="display:none">Logout</a>
+           <a href="#" class="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</a>
+
+        </div>
+    </div>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+        <h1>Contact Us</h1>
+        <p>
+            Have a question? The Decent Glam team is here to help you with watches, jewels and bags.
+        </p>
+
+        <p>Email: support@decentglam.com</p>
+        <p>Phone: +92 300 0000000</p>
+        
+    </div>
+
+    <!-- RIGHT SIDE FORM -->
+   <div class="form-box">
+    <h2>Get in Touch</h2>
+    <form id="contact-form">
+        <div class="form-row">
+            <input type="text" name="firstName" placeholder="First Name" required>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+        </div>
+
+        <div class="form-row">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone">
+        </div>
+
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <button class="btn" type="submit">Send Message</button>
+        <p id="form-status" style="margin-top:10px;color:green;"></p>
+    </form>
+</div>
+
+<script src="js/contact.js"></script>
+</div>
+<footer class="main-footer">
+    <div class="footer-content">
+
+        <div class="footer-section">
+            <h3>Decent Glam</h3>
+            <p>High-quality designs and custom products made with care.</p>
+        </div>
+ 
+
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="blogs.html">Our Blogs</a>
+            <a href="services.html">Services</a>
+            <a href="About us.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="#">Services</a>
+        </div>
+
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Decent Glam — All Rights Reserved.</p>
+    </div>
+</footer>
+<script src="js/cartCount.js"></script>
+<script src="js/authStatus.js"></script>
+
+
+</body>
+</html>
